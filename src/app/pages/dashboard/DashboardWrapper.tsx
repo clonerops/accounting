@@ -1,6 +1,5 @@
 import {useEffect} from 'react'
-import {useIntl} from 'react-intl'
-import {PageLink, PageTitle} from '../../../_metronic/layout/core'
+import {PageLink, PageTitle} from '../../../_cloner/layout/core'
 import {
   ListsWidget4,
   MixedWidget8,
@@ -12,7 +11,7 @@ import {
   ListsWidget2,
   ListsWidget6,
   TablesWidget5,
-} from '../../../_metronic/partials/widgets'
+} from '../../../_cloner/partials/widgets'
 
 const dashboardBreadCrumbs: Array<PageLink> = [
   {
@@ -152,11 +151,9 @@ const DashboardPage = () => {
 }
 
 const DashboardWrapper = () => {
-  const intl = useIntl()
   return (
     <>
       <PageTitle breadcrumbs={dashboardBreadCrumbs}>
-        {intl.formatMessage({id: 'MENU.DASHBOARD'})}
       </PageTitle>
       <DashboardPage />
     </>
