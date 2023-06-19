@@ -7,7 +7,7 @@ const Topbar: FC = () => (
   <div className='d-flex flex-shrink-0'>
     {/* begin::Invite user */}
     <div className='d-flex ms-3'>
-      <a
+      {/* <a
         href='#'
         className='btn btn-flex flex-center bg-body btn-color-gray-700 btn-active-color-primary w-40px w-md-auto h-40px px-0 px-md-6'
         data-bs-toggle='modal'
@@ -18,13 +18,13 @@ const Topbar: FC = () => (
           className='svg-icon-2 svg-icon-primary me-0 me-md-2'
         />
         <span className='d-none d-md-inline'>New Member</span>
-      </a>
+      </a> */}
     </div>
     {/* end::Invite user */}
 
     {/* begin::Create app */}
     <div className='d-flex ms-3'>
-      <a
+      {/* <a
         href='#'
         className='btn btn-flex flex-center bg-body btn-color-gray-700 btn-active-color-primary w-40px w-md-auto h-40px px-0 px-md-6'
         id='kt_toolbar_primary_button'
@@ -36,7 +36,7 @@ const Topbar: FC = () => (
           className='svg-icon-2 svg-icon-primary me-0 me-md-2'
         />
         <span className='d-none d-md-inline'>New App</span>
-      </a>
+      </a> */}
     </div>
     {/* end::Create app */}
 

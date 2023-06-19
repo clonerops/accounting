@@ -64,7 +64,7 @@ const ThemeModeSwitcher = ({
             <span className='menu-icon' data-kt-element='icon'>
               <KTSVG path='/media/icons/duotune/general/gen060.svg' className='svg-icon-3' />
             </span>
-            <span className='menu-title'>Light</span>
+            <span className='menu-title'>روشن</span>
           </a>
         </div>
         {/* end::Menu item */}
@@ -79,7 +79,7 @@ const ThemeModeSwitcher = ({
             <span className='menu-icon' data-kt-element='icon'>
               <KTSVG path='/media/icons/duotune/general/gen061.svg' className='svg-icon-3' />
             </span>
-            <span className='menu-title'>Dark</span>
+            <span className='menu-title'>تاریک</span>
           </a>
         </div>
         {/* end::Menu item */}
@@ -94,7 +94,7 @@ const ThemeModeSwitcher = ({
             <span className='menu-icon' data-kt-element='icon'>
               <KTSVG path='/media/icons/duotune/general/gen062.svg' className='svg-icon-3' />
             </span>
-            <span className='menu-title'>System</span>
+            <span className='menu-title'>سیستمی</span>
           </a>
         </div>
         {/* end::Menu item */}

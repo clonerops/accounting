@@ -84,7 +84,7 @@ const Search: FC = () => {
             type='text'
             className='search-input form-control form-control-solid ps-13'
             name='search'
-            placeholder='Search...'
+            placeholder='جستجو...'
             data-kt-search-element='input'
           />
           {/*end::Input*/}

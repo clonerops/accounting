@@ -4,6 +4,7 @@ import {MasterLayout} from '../../_cloner/layout/MasterLayout'
 import TopBarProgress from 'react-topbar-progress-indicator'
 import {DashboardWrapper} from '../pages/dashboard/DashboardWrapper'
 import {getCSSVariableValue} from '../../_cloner/assets/ts/_utils'
+import OrderWrapper from '../pages/order/OrderWrapper'
 
 const PrivateRoutes = () => {
   return (
@@ -13,6 +14,7 @@ const PrivateRoutes = () => {
         <Route path='auth/*' element={<Navigate to='/dashboard' />} />
         {/* Pages */}
         <Route path='dashboard' element={<DashboardWrapper />} />
+        <Route path='order' element={<OrderWrapper />} />
         {/* Lazy Modules */}
         {/* <Route
           path='apps/user-management/*'
