@@ -5,6 +5,8 @@ import {QueryClient, QueryClientProvider} from 'react-query'
 import {ReactQueryDevtools} from 'react-query/devtools'
 import './_cloner/assets/sass/style.react.scss'
 import './_cloner/assets/css/style.rtl.css'
+import '@progress/kendo-theme-default/dist/all.css';
+
 
 import {AppRoutes} from './app/routing/AppRoutes'
 import {ThemeModeProvider} from './_cloner/partials/layout/theme-mode/ThemeModeProvider'

@@ -50084,6 +50084,7 @@ body {
 }
 .aside-secondary-enabled .aside .aside-primary {
   border-left: 1px solid transparent;
+  background-color: var(--kt-primary, .5);
 }
 .aside-secondary-enabled:not([data-kt-aside-minimize=on]) .aside .aside-primary {
   border-left-color: var(--kt-border-color);
@@ -50170,4 +50171,22 @@ body {
   .content {
     padding: 15px 0;
   }
+}
+
+
+.datalist {
+  width: 100%;
+}
+
+.dropdown__label {
+  padding: .5rem;
+}
+
+.order {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .1rem;
+  /* justify-content: space-between; */
+  align-items: center;
 }
