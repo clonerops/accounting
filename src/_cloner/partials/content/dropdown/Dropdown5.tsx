@@ -8,25 +8,20 @@ import {
     FilterDescriptor,
 } from "@progress/kendo-data-query";
 import React, { useState, FC } from "react";
-
-interface IDropdown {
-    id: number;
-    text: string;
-}
+import { handleDropdownValue } from "../../../../app/modules/product/core/_function";
 
 interface IProps {
-    data: IDropdown[];
+    data: any;
     title: string;
 }
 
 const Dropdown5: FC<IProps> = ({ data, title }) => {
-    const [dropDownData, setDropDownData] = useState(data.slice());
 
+  const [dropDownData, setDropDownData] = useState(data);
     // For Filter Data
-    const filterData = (
-        filter: FilterDescriptor | CompositeFilterDescriptor
-    ) => {
-        const dataFilter = data.slice();
+    const filterData = (filter: FilterDescriptor | CompositeFilterDescriptor
+) => {
+        const dataFilter = data?.slice();
         return filterBy(dataFilter, filter);
     };
 
@@ -58,7 +53,7 @@ const Dropdown5: FC<IProps> = ({ data, title }) => {
             <label className="dropdown__label">{title}</label>
             <DropDownList
                 className=""
-                data={dropDownData}
+                data={handleDropdownValue(dropDownData)}
                 textField="text"
                 filterable={true}
                 listNoDataRender={listNoDataRender}
