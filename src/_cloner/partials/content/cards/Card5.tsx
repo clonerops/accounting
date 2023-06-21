@@ -22,7 +22,7 @@ const Card5: FC<Props> = ({ image, title, children }) => {
                     </a>
                 </div>
 
-                <div className="card-toolbar m-0">
+                {/* <div className="card-toolbar m-0">
                     <button
                         type="button"
                         className="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary me-n3"
@@ -37,7 +37,7 @@ const Card5: FC<Props> = ({ image, title, children }) => {
                     </button>
 
                     <Dropdown1 />
-                </div>
+                </div> */}
             </div>
 
             <div className="card-body d-flex flex-column px-9 pt-6 pb-8">
