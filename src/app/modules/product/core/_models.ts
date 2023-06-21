@@ -13,6 +13,12 @@ export interface IStores {
     title: string
     description: string
 }
+export interface ICustomers {
+    id: number
+    firstName: string
+    lastName: string
+    mobile: string
+}
 
 export interface IDropdown {
     id: number

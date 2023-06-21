@@ -10,6 +10,12 @@ const createCustomer = async (formData: ICreateCustomer) => {
     return data
 }
 
+const customerLists = async () => {
+    const { data } = await http.get('/customers')
+    return data
+}
+
 export {
-    createCustomer
+    createCustomer,
+    customerLists
 }

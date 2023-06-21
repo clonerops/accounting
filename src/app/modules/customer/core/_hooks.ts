@@ -1,4 +1,4 @@
-import { useMutation } from "react-query"
+import { useMutation, useQuery } from "react-query"
 import * as api from '../requests/request'
 import { ICreateCustomer } from "./_models"
 
@@ -10,6 +10,11 @@ const useCreateCustomer = () => {
     })
 }
 
+const useCustomerList = () => {
+    return useQuery('customers', api.customerLists)
+}
+
 export {
-    useCreateCustomer
+    useCreateCustomer,
+    useCustomerList
 }

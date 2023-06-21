@@ -9,7 +9,7 @@ import CustomSelect from "../../../_cloner/partials/content/dropdown/Dropdown6";
 import CustomInput from "../../../_cloner/partials/content/input/CustomInput";
 import SearchInput from "../../../_cloner/partials/layout/search/SearchInput";
 import CustomModal from "../../../_cloner/partials/modals/CustomModal";
-import { useCreateCustomer } from "../../modules/customer/core/_hooks";
+import { useCreateCustomer, useCustomerList } from "../../modules/customer/core/_hooks";
 import { handleDropdownValue } from "../../modules/product/core/_function";
 import { IProductProps } from "../../modules/product/core/_models";
 import { useProducts } from "../../modules/product/core/hooks";

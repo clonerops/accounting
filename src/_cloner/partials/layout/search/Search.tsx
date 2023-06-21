@@ -1,15 +1,21 @@
-import React, {FC, useEffect, useRef, useState} from 'react'
-import {SearchComponent} from '../../../assets/ts/components'
-import {KTSVG, toAbsoluteUrl} from '../../../helpers'
+import React, { FC, useEffect, useRef, useState } from 'react'
+import { SearchComponent } from '../../../assets/ts/components'
+import { KTSVG, toAbsoluteUrl } from '../../../helpers'
+import { useCustomerList } from '../../../../app/modules/customer/core/_hooks'
+
+interface Customers {
+  firstName: string
+  lastName: string
+  mobile: string
+}
 
 interface IProps {
   placeholder?: string
+  // customers?: Customers[]
 }
 
-const Search: FC<IProps> = ({placeholder}) => {
+const Search: FC<IProps> = ({ placeholder }) => {
   const [menuState, setMenuState] = useState<'main' | 'advanced' | 'preferences'>('main')
-  const element = useRef<HTMLDivElement | null>(null)
-  const wrapperElement = useRef<HTMLDivElement | null>(null)
   const resultsElement = useRef<HTMLDivElement | null>(null)
   const suggestionsElement = useRef<HTMLDivElement | null>(null)
   const emptyElement = useRef<HTMLDivElement | null>(null)
@@ -58,21 +64,37 @@ const Search: FC<IProps> = ({placeholder}) => {
     searchObject!.on('kt.search.clear', clear)
   }, [])
 
+
+  const { data: customers } = useCustomerList()
+
+  const [searchValue, setSearchValue] = useState('')
+  const [customerData, setCustomerData] = useState(customers)
+  
+  const handleSearch = (e: any) => {
+    setSearchValue(e.target.value)
+    setCustomerData(
+      customers?.filter((item: any) => {
+        return item.firstName.includes(e.target.value)
+      })
+    )
+  }
+
+  const selectedCustomers = (item: any) => {
+    setSearchValue(item.firstName + " " + item.lastName)
+  }
+
+
   return (
     <>
       <div
         id='kt_header_search'
         className='header-search d-flex align-items-center w-100'
         data-kt-search-keypress='true'
-        data-kt-search-min-length='2'
         data-kt-search-enter='enter'
         data-kt-search-layout='menu'
         data-kt-search-responsive='false'
         data-kt-menu-trigger='auto'
-        data-kt-menu-permanent='true'
         data-kt-menu-placement='bottom-end'
-        data-kt-search='true'
-        ref={element}
       >
         <form
           data-kt-search-element='form'
@@ -89,28 +111,11 @@ const Search: FC<IProps> = ({placeholder}) => {
             className='search-input form-control form-control-solid ps-13'
             name='search'
             placeholder={placeholder}
+            value={searchValue}
+            onChange={handleSearch}
             data-kt-search-element='input'
           />
           {/*end::Input*/}
-          {/*begin::Spinner*/}
-          <span
-            className='position-absolute top-50 end-0 translate-middle-y lh-0 me-5 d-none'
-            data-kt-search-element='spinner'
-          >
-            <span className='spinner-border h-15px w-15px align-middle text-gray-400'></span>
-          </span>
-          {/*end::Spinner*/}
-          {/*begin::Reset*/}
-          <span
-            className='btn btn-flush btn-active-color-primary position-absolute top-50 end-0 translate-middle-y lh-0 me-4 d-none'
-            data-kt-search-element='clear'
-          >
-            <KTSVG
-              path='/media/icons/duotune/arrows/arr061.svg'
-              className='svg-icon svg-icon-2 svg-icon-lg-1 me-0'
-            />
-          </span>
-          {/*end::Reset*/}
         </form>
 
         <div
@@ -119,7 +124,6 @@ const Search: FC<IProps> = ({placeholder}) => {
         >
           <div
             className={`${menuState === 'main' ? '' : 'd-none'}`}
-            ref={wrapperElement}
             data-kt-search-element='wrapper'
           >
             <div className='d-flex flex-stack fw-bold mb-4'>
@@ -128,23 +132,19 @@ const Search: FC<IProps> = ({placeholder}) => {
               {/*end::Label*/}
             </div>
 
-            <div ref={suggestionsElement} className='mb-4' data-kt-search-element='main'>
+            <div  className='mb-4'>
               <div className='scroll-y mh-200px mh-lg-325px'>
                 <div className='d-flex align-items-center mb-5'>
-                  <div className='symbol symbol-40px me-4'>
-                    <span className='symbol-label bg-light'>
-                      <KTSVG
-                        path='/media/icons/duotune/electronics/elc004.svg'
-                        className='svg-icon-2 svg-icon-primary'
-                      />
-                    </span>
-                  </div>
-
                   <div className='d-flex flex-column'>
-                    <a href='/#' className='fs-6 text-gray-800 text-hover-primary fw-bold'>
-                      BoomApp by Keenthemes
-                    </a>
-                    <span className='fs-7 text-muted fw-bold'>#45789</span>
+                    {customerData?.map((item: any) => {
+                      return <div className='d-flex justify-content-between mt-5 k-pr-4'>
+                        <a onClick={() => selectedCustomers(item)} className='cursor-pointer fs-6 text-gray-800 text-hover-primary fw-bold'>
+                          {item.firstName} {item.lastName}
+                        </a>
+                        <span className='fs-7 text-muted fw-bold k-pr-4'>{item.mobile}</span>
+                      </div>
+
+                    })}
                   </div>
                 </div>
               </div>
@@ -157,4 +157,4 @@ const Search: FC<IProps> = ({placeholder}) => {
   )
 }
 
-export {Search}
+export { Search }
