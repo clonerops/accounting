@@ -14,12 +14,14 @@ import { handleDropdownValue } from "../../modules/product/core/_function";
 import { IProductProps } from "../../modules/product/core/_models";
 import { useProducts } from "../../modules/product/core/hooks";
 import { useStores } from "../../modules/store/core/_hooks";
-import { TablesWidget1, TablesWidget2, TablesWidget3, TablesWidget4, TablesWidget5 } from "../../../_cloner/partials/widgets";
+import { TablesWidget5 } from "../../../_cloner/partials/widgets";
 import CustomTextarea from "../../../_cloner/partials/content/input/CustomTextarea";
+import CustomDatepicker from "../../../_cloner/partials/content/input/CustomDatepicker";
 
 interface ISelectValue {
     value?: number
     label?: string
+    type?: string
 }
 
 interface IOrders {
@@ -34,13 +36,15 @@ const OrderPage = (props: IProductProps) => {
     // let orders: IOrders[] = []
     const [orders, setOrders] = useState<IOrders[]>([])
     const [productValue, setProductValue] = useState<ISelectValue>({})
-    const [storeValue, setStoreValue] = useState('')
+    const [storeValue, setStoreValue] = useState<ISelectValue>({})
     const [inputs, setInputs] = useState({
         firstName: "",
         lastName: "",
         nationalCode: "",
         mobile: "",
         telephone: "",
+        amount: "",
+        quantity: ""
     });
 
     const onChangeHandler = useCallback(
@@ -51,9 +55,9 @@ const OrderPage = (props: IProductProps) => {
         []
     );
 
-    const productOnChange = (selectedOption: any) => {
-        setProductValue(selectedOption)
-    };
+    const productOnChange = (selectedOption: any) => setProductValue(selectedOption)
+    const storeOnChange = (selectedOption: any) => setStoreValue(selectedOption)
+
 
     const { mutate } = useCreateCustomer();
 
@@ -68,17 +72,19 @@ const OrderPage = (props: IProductProps) => {
     };
 
     const addedOrders = () => {
+        if (!productValue) {
+            alert('وارد نمودن محصول اجباری می باشد')
+        } else {
+            const newObject = {
+                title: productValue.label,
+                amount: inputs.amount,
+                quantity: inputs.quantity,
+                store: storeValue.label
+            }
 
-        const newObject = {
-            title: productValue.label,
-            amount: "65656",
-            pack: 5,
-            store: 'ابار مرکزی'
+            setOrders((prev) => [...prev, newObject])
         }
-
-        setOrders((prev) => [...prev, newObject])
     }
-    console.log(orders)
 
 
     return (
@@ -158,21 +164,27 @@ const OrderPage = (props: IProductProps) => {
                         title="انبار"
                         placeholder="انتخاب کنید..."
                         options={handleDropdownValue(stores)}
-                        onChange={productOnChange}
+                        onChange={storeOnChange}
                     />
-                    <CustomInput title="مقدار" />
-                    <CustomInput title="قیمت" />
+                    <CustomInput name="quantity" key="quantity" value={inputs.quantity} onChange={onChangeHandler} title="مقدار" />
+                    {storeValue.type == '2' &&
+                        <>
+                            <CustomInput title="خرید از" />
+                            <CustomInput title="قیمت خرید" />
+                        </>
+                    }
+                    <CustomInput key='amount' name='amount' value={inputs.amount} onChange={onChangeHandler} title="قیمت" />
                     <div className="button_add_order">
                         <button onClick={addedOrders} className="custombutton btn btn-primary">
                             افزودن
                         </button>
                     </div>
                 </div>
-                <div className="order_items">
+                <div className="order_items mt-5">
                     <TablesWidget5 className="" orders={orders} setOrders={setOrders} />
                 </div>
                 <div className="d-flex mt-5 gap-4">
-                    <CustomInput title="تاریخ تسویه" />
+                    <CustomDatepicker title="تاریخ تسویه" />
                     <div className="w-100">
                         <CustomTextarea title="توضیحات" />
                     </div>

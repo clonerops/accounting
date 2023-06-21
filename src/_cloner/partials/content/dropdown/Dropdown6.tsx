@@ -1,9 +1,9 @@
 import Select from "react-select";
 
 interface SelectProps {
-    options: { value: string; label: string }[];
-    onChange: (selectedOption: { value: string; label: string } | null) => void;
-    defaultValue?: { value: string; label: string };
+    options: { value: string; label: string , type?: string}[];
+    onChange: (selectedOption: { value: string; label: string; } | null) => void;
+    defaultValue?: { value: string; label: string; };
     placeholder?: string;
     autoFocus?: boolean
     title?: string
@@ -20,7 +20,7 @@ const CustomSelect: React.FC<SelectProps> = ({
     return (
         <div
             style={{
-                minWidth: "19.3vw",
+                minWidth: "20vw",
                 gap: 8,
             }}
         >

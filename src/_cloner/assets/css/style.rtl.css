@@ -50191,7 +50191,9 @@ body {
   align-items: center;
 }
 .button_add_order {
-  margin-top: 2.5rem;
+  display: flex;
+  flex: 1;
+  justify-content: end
 }
 .add_customer {
   width: 100%;

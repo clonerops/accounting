@@ -12,7 +12,7 @@ const CustomInput: FC<IProps> = ({title, value, name, key, onChange}) => {
     return (
         <div
             style={{
-                minWidth: "19.5vw",
+                minWidth: "20vw",
                 gap: 8,
             }}
         >

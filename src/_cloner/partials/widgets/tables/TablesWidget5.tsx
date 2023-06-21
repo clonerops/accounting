@@ -82,7 +82,7 @@ const TablesWidget5: React.FC<Props> = ({className, orders, setOrders}) => {
                 {/* end::Table head */}
                 {/* begin::Table body */}
                 <tbody>
-                  {orders.map((item: any, index: any) => {
+                  {orders?.map((item: any, index: any) => {
                     return  <tr>
                     <td>
                       <div className='symbol symbol-45px me-2'>
@@ -99,10 +99,10 @@ const TablesWidget5: React.FC<Props> = ({className, orders, setOrders}) => {
                       <a href='#' className='text-dark fw-bold text-hover-primary mb-1 fs-6'>
                         {item.title}
                       </a>
-                      <span className='text-muted fw-semibold d-block'>3 بسته</span>
+                      <span className='text-muted fw-semibold d-block'>{`${item.quantity} بسته`}</span>
                     </td>
-                    <td className='text-end text-muted fw-semibold'>850,000,000</td>
-                    <td className='text-end text-muted fw-semibold'>انبار سپهری شرق</td>
+                    <td className='text-end text-muted fw-semibold'>{item.amount} ریال</td>
+                    <td className='text-end text-muted fw-semibold'>انبار {item.store}</td>
                     {/* <td className='text-end'>
                       <span className='badge badge-light-success'>Approved</span>
                     </td> */}
