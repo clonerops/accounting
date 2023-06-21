@@ -141,7 +141,7 @@ const DashboardPage = () => {
 
         {/* begin::Col */}
         <div className='col-xxl-8'>
-          <TablesWidget5 className='card-xxl-stretch mb-5 mb-xxl-8' />
+          <TablesWidget5 orders='' className='card-xxl-stretch mb-5 mb-xxl-8' />
         </div>
         {/* end::Col */}
       </div>

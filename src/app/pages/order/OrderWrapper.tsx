@@ -14,9 +14,26 @@ import { handleDropdownValue } from "../../modules/product/core/_function";
 import { IProductProps } from "../../modules/product/core/_models";
 import { useProducts } from "../../modules/product/core/hooks";
 import { useStores } from "../../modules/store/core/_hooks";
+import { TablesWidget1, TablesWidget2, TablesWidget3, TablesWidget4, TablesWidget5 } from "../../../_cloner/partials/widgets";
+
+interface ISelectValue {
+    value?: number
+    label?: string
+}
+
+interface IOrders {
+    title: string | undefined
+    pack?: number | undefined
+    amount: string | undefined
+    store: string | undefined
+}
 
 const OrderPage = (props: IProductProps) => {
     const { products, stores } = props;
+    // let orders: IOrders[] = []
+    const [orders, setOrders] = useState<IOrders[]>([])
+    const [productValue, setProductValue] = useState<ISelectValue>({})
+    const [storeValue, setStoreValue] = useState('')
     const [inputs, setInputs] = useState({
         firstName: "",
         lastName: "",
@@ -33,7 +50,9 @@ const OrderPage = (props: IProductProps) => {
         []
     );
 
-    const productOnChange = (selectedOption: any) => {};
+    const productOnChange = (selectedOption: any) => {
+        setProductValue(selectedOption)
+    };
 
     const { mutate } = useCreateCustomer();
 
@@ -46,6 +65,20 @@ const OrderPage = (props: IProductProps) => {
             telephone: inputs.telephone,
         });
     };
+
+    const addedOrders = () => {
+
+        const newObject = {
+            title: productValue.label,
+            amount: "65656",
+            pack: 5,
+            store: 'ابار مرکزی'
+        }
+
+        setOrders((prev) => [...prev, newObject])
+    }
+    console.log(orders)
+    
 
     return (
         <>
@@ -128,10 +161,13 @@ const OrderPage = (props: IProductProps) => {
                     />
                     <CustomInput title="قیمت" />
                     <div className="button_add_order">
-                        <button className="custombutton btn btn-primary">
+                        <button onClick={addedOrders} className="custombutton btn btn-primary">
                             افزودن
                         </button>
                     </div>
+                </div>
+                <div className="order_items">
+                    <TablesWidget5 className="" orders={orders} setOrders={setOrders} />
                 </div>
             </Card5>
         </>
