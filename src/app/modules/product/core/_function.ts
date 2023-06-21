@@ -3,7 +3,7 @@ export const handleDropdownValue = (data: any) => {
         data &&
         data.map((obj: { id: any; title: any; }): any => {
             const { id, title } = obj;
-            return { id, text: title };
+            return { value: id, label: title };
         })
     );
 };

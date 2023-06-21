@@ -53,7 +53,7 @@ const Dropdown5: FC<IProps> = ({ data, title }) => {
             <label className="dropdown__label">{title}</label>
             <DropDownList
                 className=""
-                data={handleDropdownValue(dropDownData)}
+                data={handleDropdownValue(data)}
                 textField="text"
                 filterable={true}
                 listNoDataRender={listNoDataRender}
@@ -64,3 +64,7 @@ const Dropdown5: FC<IProps> = ({ data, title }) => {
 };
 
 export default Dropdown5;
+function setData(arg0: unknown[]) {
+    throw new Error("Function not implemented.");
+}
+

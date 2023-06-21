@@ -1,20 +1,36 @@
 import Select from "react-select";
 
-const Dropdown6 = (props: any) => {
+interface SelectProps {
+    options: { value: string; label: string }[];
+    onChange: (selectedOption: { value: string; label: string } | null) => void;
+    defaultValue?: { value: string; label: string };
+    placeholder?: string;
+    title?: string
+}
+
+const CustomSelect: React.FC<SelectProps> = ({
+    options,
+    onChange,
+    defaultValue,
+    placeholder,
+    title
+}) => {
     return (
-        <Select
-            isClearable
-            // value={props.value}
-            // onChange={props.onChange}
-            // styles={customStyles}
-            options={props.options}
-            // placeholder={props.placeholder}
-            // className='w-full'
-            // noOptionsMessage={() => 'درحال بارگزاری...'}
-            // name={props.name}
-            // isMulti={props.isMulti}
-        />
+        <div
+            style={{
+                minWidth: "19.3vw",
+                gap: 8,
+            }}
+        >
+            <label className="dropdown__label">{title}</label>
+            <Select
+                options={options}
+                onChange={onChange}
+                defaultValue={defaultValue}
+                placeholder={placeholder}
+            />
+        </div>
     );
 };
 
-export default Dropdown6;
+export default CustomSelect;

@@ -1,16 +1,4 @@
-import { Link } from "react-router-dom";
-import { KTSVG, toAbsoluteUrl } from "../../../../helpers";
-import { Dropdown1, Search } from "../../../../partials";
-
-const projects: ReadonlyArray<{ image: string; title: string; link: string }> =
-    [
-        {
-            image: "/media/svg/brand-logos/bebo.svg",
-            title: "Briviba SaaS",
-            link: "By James",
-        },
-        
-    ];
+import { Search } from "../../../../partials";
 
 const ProjectsTab = () => {
     return (

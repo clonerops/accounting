@@ -2,7 +2,11 @@ import React, {FC, useEffect, useRef, useState} from 'react'
 import {SearchComponent} from '../../../assets/ts/components'
 import {KTSVG, toAbsoluteUrl} from '../../../helpers'
 
-const Search: FC = () => {
+interface IProps {
+  placeholder?: string
+}
+
+const Search: FC<IProps> = ({placeholder}) => {
   const [menuState, setMenuState] = useState<'main' | 'advanced' | 'preferences'>('main')
   const element = useRef<HTMLDivElement | null>(null)
   const wrapperElement = useRef<HTMLDivElement | null>(null)
@@ -84,7 +88,7 @@ const Search: FC = () => {
             type='text'
             className='search-input form-control form-control-solid ps-13'
             name='search'
-            placeholder='جستجو...'
+            placeholder={placeholder}
             data-kt-search-element='input'
           />
           {/*end::Input*/}
