@@ -50221,3 +50221,17 @@ body {
   margin: 1rem 0;
   align-self: flex-end;
 }
+.salefactor {
+  padding: 1rem ;
+}
+.salefactor span {
+  font-size: 1.4rem;
+  font-weight: bold;
+  
+}
+.salefactor:nth-child(2) {
+  color: #912741;
+}
+.salefactor:nth-child(3) {
+  color: #00afaf;
+}

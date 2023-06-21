@@ -15,6 +15,7 @@ import { IProductProps } from "../../modules/product/core/_models";
 import { useProducts } from "../../modules/product/core/hooks";
 import { useStores } from "../../modules/store/core/_hooks";
 import { TablesWidget1, TablesWidget2, TablesWidget3, TablesWidget4, TablesWidget5 } from "../../../_cloner/partials/widgets";
+import CustomTextarea from "../../../_cloner/partials/content/input/CustomTextarea";
 
 interface ISelectValue {
     value?: number
@@ -78,7 +79,7 @@ const OrderPage = (props: IProductProps) => {
         setOrders((prev) => [...prev, newObject])
     }
     console.log(orders)
-    
+
 
     return (
         <>
@@ -159,6 +160,7 @@ const OrderPage = (props: IProductProps) => {
                         options={handleDropdownValue(stores)}
                         onChange={productOnChange}
                     />
+                    <CustomInput title="مقدار" />
                     <CustomInput title="قیمت" />
                     <div className="button_add_order">
                         <button onClick={addedOrders} className="custombutton btn btn-primary">
@@ -169,7 +171,38 @@ const OrderPage = (props: IProductProps) => {
                 <div className="order_items">
                     <TablesWidget5 className="" orders={orders} setOrders={setOrders} />
                 </div>
+                <div className="d-flex mt-5 gap-4">
+                    <CustomInput title="تاریخ تسویه" />
+                    <div className="w-100">
+                        <CustomTextarea title="توضیحات" />
+                    </div>
+                </div>
+
+                <div className="mt-5">
+                    <Card5 title="فاکتور فروش محصولات" image="">
+                        <div className="salefactor d-flex justify-content-between">
+                            <span className="font-weight-bold">قیمت کل</span>
+                            <span className="font-weight-bold">590,000,000</span>
+                        </div>
+                        <div className="salefactor d-flex justify-content-between">
+                            <span className="font-weight-bold">تخفیف</span>
+                            <span className="font-weight-bold">800,000</span>
+                        </div>
+                        <div className="salefactor d-flex justify-content-between">
+                            <span className="font-weight-bold">قیمت قابل پرداخت</span>
+                            <span className="font-weight-bold">550,000,000</span>
+                        </div>
+                        <div className="d-flex justify-content-end mt-5">
+                            <button className=" btn btn-primary">
+                                ثبت سفارش
+                            </button>
+                        </div>
+                    </Card5>
+                </div>
+
+
             </Card5>
+
         </>
     );
 };
