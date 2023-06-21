@@ -1,6 +1,7 @@
 export interface IProductProps {
     products: IProducts[]
     stores: IStores[]
+    customers: ICustomers[]
 }
 
 export interface IProducts {

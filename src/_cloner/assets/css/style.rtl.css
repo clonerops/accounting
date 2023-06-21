@@ -50231,9 +50231,9 @@ body {
   font-weight: bold;
   
 }
-.salefactor:nth-child(2) {
+/* .salefactor:nth-child(2) {
   color: #912741;
-}
-.salefactor:nth-child(3) {
+} */
+.salefactor:nth-child(2) {
   color: #00afaf;
 }

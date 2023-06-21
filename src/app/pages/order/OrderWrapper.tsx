@@ -32,7 +32,7 @@ interface IOrders {
 }
 
 const OrderPage = (props: IProductProps) => {
-    const { products, stores } = props;
+    const { products, stores, customers } = props;
     // let orders: IOrders[] = []
     const [orders, setOrders] = useState<IOrders[]>([])
     const [productValue, setProductValue] = useState<ISelectValue>({})
@@ -136,7 +136,7 @@ const OrderPage = (props: IProductProps) => {
             <Card5 title="سفارشات" image="">
                 <div className="m-0">
                     <div className="d-flex mb-10 gap-8">
-                        <Search placeholder="جستجو مشتری" />
+                        <Search customers={customers} placeholder="جستجو مشتری" />
                         <div
                             data-bs-target="#createcustomer"
                             data-bs-toggle="modal"
@@ -194,15 +194,15 @@ const OrderPage = (props: IProductProps) => {
                     <Card5 title="فاکتور فروش محصولات" image="">
                         <div className="salefactor d-flex justify-content-between">
                             <span className="font-weight-bold">قیمت کل</span>
-                            <span className="font-weight-bold">590,000,000</span>
+                            <span className="font-weight-bold">0</span>
                         </div>
-                        <div className="salefactor d-flex justify-content-between">
+                        {/* <div className="salefactor d-flex justify-content-between">
                             <span className="font-weight-bold">تخفیف</span>
-                            <span className="font-weight-bold">800,000</span>
-                        </div>
+                            <span className="font-weight-bold">0</span>
+                        </div> */}
                         <div className="salefactor d-flex justify-content-between">
                             <span className="font-weight-bold">قیمت قابل پرداخت</span>
-                            <span className="font-weight-bold">550,000,000</span>
+                            <span className="font-weight-bold">0</span>
                         </div>
                         <div className="d-flex justify-content-end mt-5">
                             <button className=" btn btn-primary">
@@ -222,11 +222,13 @@ const OrderPage = (props: IProductProps) => {
 const OrderWrapper = () => {
     const { data: products } = useProducts();
     const { data: stores } = useStores();
+    const { data: customers } = useCustomerList();
 
+    console.log(stores)
     return (
         <>
             <PageTitle description="ثبت سفارش"></PageTitle>
-            <OrderPage products={products} stores={stores} />
+            <OrderPage products={products} stores={stores} customers={customers} />
         </>
     );
 };

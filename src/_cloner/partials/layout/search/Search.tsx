@@ -11,10 +11,10 @@ interface Customers {
 
 interface IProps {
   placeholder?: string
-  // customers?: Customers[]
+  customers?: Customers[]
 }
 
-const Search: FC<IProps> = ({ placeholder }) => {
+const Search: FC<IProps> = ({ placeholder, customers }) => {
   const [menuState, setMenuState] = useState<'main' | 'advanced' | 'preferences'>('main')
   const resultsElement = useRef<HTMLDivElement | null>(null)
   const suggestionsElement = useRef<HTMLDivElement | null>(null)
@@ -65,19 +65,13 @@ const Search: FC<IProps> = ({ placeholder }) => {
   }, [])
 
 
-  const { data: customers } = useCustomerList()
-
   const [searchValue, setSearchValue] = useState('')
-  const [customerData, setCustomerData] = useState(customers)
-  
-  const handleSearch = (e: any) => {
-    setSearchValue(e.target.value)
-    setCustomerData(
-      customers?.filter((item: any) => {
-        return item.firstName.includes(e.target.value)
-      })
-    )
-  }
+
+  const handleSearch = (e: any) =>  setSearchValue(e.target.value)
+
+  const filtredData = customers?.filter((item: any) => {
+    return item.firstName.includes(searchValue)
+  })
 
   const selectedCustomers = (item: any) => {
     setSearchValue(item.firstName + " " + item.lastName)
@@ -132,11 +126,11 @@ const Search: FC<IProps> = ({ placeholder }) => {
               {/*end::Label*/}
             </div>
 
-            <div  className='mb-4'>
+            <div className='mb-4'>
               <div className='scroll-y mh-200px mh-lg-325px'>
                 <div className='d-flex align-items-center mb-5'>
                   <div className='d-flex flex-column'>
-                    {customerData?.map((item: any) => {
+                    {filtredData?.map((item: any) => {
                       return <div className='d-flex justify-content-between mt-5 k-pr-4'>
                         <a onClick={() => selectedCustomers(item)} className='cursor-pointer fs-6 text-gray-800 text-hover-primary fw-bold'>
                           {item.firstName} {item.lastName}
