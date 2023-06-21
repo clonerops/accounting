@@ -38,18 +38,14 @@ const OrderPage = (props: IProductProps) => {
     const { mutate } = useCreateCustomer();
 
     const createCustomer = () => {
-        mutate(
-            {
-                firstName: inputs.firstName,
-                lastName: inputs.lastName,
-                nationalCode: inputs.nationalCode,
-                mobile: inputs.mobile,
-                telephone: inputs.telephone,
-            }
-        )
+        mutate({
+            firstName: inputs.firstName,
+            lastName: inputs.lastName,
+            nationalCode: inputs.nationalCode,
+            mobile: inputs.mobile,
+            telephone: inputs.telephone,
+        });
     };
-
-
 
     return (
         <>
@@ -122,6 +118,7 @@ const OrderPage = (props: IProductProps) => {
                         placeholder="انتخاب کنید..."
                         options={handleDropdownValue(products)}
                         onChange={productOnChange}
+                        autoFocus={true}
                     />
                     <CustomSelect
                         title="انبار"
@@ -130,8 +127,12 @@ const OrderPage = (props: IProductProps) => {
                         onChange={productOnChange}
                     />
                     <CustomInput title="قیمت" />
+                    <div className="button_add_order">
+                        <button className="custombutton btn btn-primary">
+                            افزودن
+                        </button>
+                    </div>
                 </div>
-                <button className="custombutton btn btn-primary">افزودن</button>
             </Card5>
         </>
     );

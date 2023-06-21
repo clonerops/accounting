@@ -50190,6 +50190,9 @@ body {
   /* justify-content: space-between; */
   align-items: center;
 }
+.button_add_order {
+  margin-top: 2.5rem;
+}
 .add_customer {
   width: 100%;
   cursor: pointer;

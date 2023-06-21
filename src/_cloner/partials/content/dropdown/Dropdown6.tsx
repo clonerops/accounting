@@ -5,6 +5,7 @@ interface SelectProps {
     onChange: (selectedOption: { value: string; label: string } | null) => void;
     defaultValue?: { value: string; label: string };
     placeholder?: string;
+    autoFocus?: boolean
     title?: string
 }
 
@@ -12,6 +13,7 @@ const CustomSelect: React.FC<SelectProps> = ({
     options,
     onChange,
     defaultValue,
+    autoFocus,
     placeholder,
     title
 }) => {
@@ -28,6 +30,7 @@ const CustomSelect: React.FC<SelectProps> = ({
                 onChange={onChange}
                 defaultValue={defaultValue}
                 placeholder={placeholder}
+                autoFocus={autoFocus}
             />
         </div>
     );
