@@ -1,13 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { KTSVG } from "../../../_cloner/helpers";
-import { ProjectsTab } from "../../../_cloner/layout/components/aside/Tabs/ProjectsTab";
 import { PageTitle } from "../../../_cloner/layout/core";
 import { Search } from "../../../_cloner/partials";
 import { Card5 } from "../../../_cloner/partials/content/cards/Card5";
-import Dropdown5 from "../../../_cloner/partials/content/dropdown/Dropdown5";
 import CustomSelect from "../../../_cloner/partials/content/dropdown/Dropdown6";
 import CustomInput from "../../../_cloner/partials/content/input/CustomInput";
-import SearchInput from "../../../_cloner/partials/layout/search/SearchInput";
 import CustomModal from "../../../_cloner/partials/modals/CustomModal";
 import {
     useCreateCustomer,
@@ -19,13 +16,12 @@ import { useProducts } from "../../modules/product/core/hooks";
 import { useStores } from "../../modules/store/core/_hooks";
 import {
     TablesWidget11,
-    TablesWidget5,
 } from "../../../_cloner/partials/widgets";
 import CustomTextarea from "../../../_cloner/partials/content/input/CustomTextarea";
 import CustomDatepicker from "../../../_cloner/partials/content/input/CustomDatepicker";
 import { convertToPersianWord } from "../../../_cloner/helpers/convertPersian";
 import { sliceNumberPrice } from "../../../_cloner/helpers/sliceNumberPrice";
-import CustomModernDatepicker from "../../../_cloner/partials/content/input/CustomModernDatepicker";
+import { useCreateOrder } from "../../modules/order/core/_hooks";
 
 interface ISelectValue {
     value?: number;
@@ -71,6 +67,7 @@ const OrderPage = (props: IProductProps) => {
         setStoreValue(selectedOption);
 
     const { mutate } = useCreateCustomer();
+    const { mutate: orderDetail } = useCreateOrder();
 
     const createCustomer = () => {
         mutate({
@@ -82,16 +79,9 @@ const OrderPage = (props: IProductProps) => {
         });
     };
 
-    // const totalPrice = () => {
-    //     const prices = orders.map((obj) => obj.amount)
-    //     const newPrice = [...prices]
-    //     const newTotal = newPrice.reduce((acc: any, cur) => acc + cur, 0); // calculate the new total
-    //     setTotalAmount(newTotal)
-    // }
-
     const addedOrders = (e: any) => {
         e.preventDefault();
-        if (productValue.label == undefined) {
+        if (productValue.label === undefined) {
             alert("وارد نمودن محصول اجباری می باشد");
         } else {
             const newObject = {
@@ -111,6 +101,27 @@ const OrderPage = (props: IProductProps) => {
         const newTotal = newPrices.reduce((acc: any, item) => acc + item, 0);
         setTotalAmount(newTotal);
     }, [orders]);
+
+
+    const orderConfirm = () => {
+        orderDetail(
+            {
+                customerId: 1,
+                settlementDate: "2022-12-31",
+                description: "test",
+                totalAmount: "123",
+                order_details: [
+                    // {
+                    //     amount: "123",
+                    //     quantity: "345",
+                    //     customerId: 1,
+                    //     productId: 6,
+                    //     storeId: 4
+                    // }
+                ]
+            }
+        )
+    }
 
     return (
         <>
@@ -206,7 +217,7 @@ const OrderPage = (props: IProductProps) => {
                         onChange={onChangeHandler}
                         placeholder="مقدار"
                     />
-                    {storeValue.type == "2" && (
+                    {storeValue.type === "2" && (
                         <>
                             <CustomInput placeholder="خرید از" />
                             <CustomInput placeholder="قیمت خرید" />
@@ -240,7 +251,6 @@ const OrderPage = (props: IProductProps) => {
                     <div className="order_items2 mt-5">
                         <div className="d-flex flex-column mt-5 gap-4">
                             <CustomDatepicker placeholder="تاریخ تسویه" />
-                            {/* <CustomModernDatepicker /> */}
                             <div className="w-100">
                                 <CustomTextarea placeholder="توضیحات" />
                             </div>
@@ -254,11 +264,11 @@ const OrderPage = (props: IProductProps) => {
                         </div>
                         <div className="salefactor d-flex flex-column justify-content-between">
                             <span className="font-weight-bold">
-                                {convertToPersianWord(totalAmount)} تومان 
+                                {convertToPersianWord(totalAmount)} تومان
                             </span>
                         </div>
                         <div className="d-flex justify-content-end mt-5">
-                            <button className=" btn btn-primary">
+                            <button onClick={orderConfirm} className=" btn btn-primary">
                                 ثبت سفارش
                             </button>
                         </div>

@@ -50193,7 +50193,7 @@ body {
 .button_add_order {
   display: flex;
   flex: 1;
-  justify-content: end
+  justify-content: flex-end
 }
 .add_customer {
   width: 100%;

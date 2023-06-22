@@ -1,7 +1,8 @@
+import { useState } from "react";
 import Select from "react-select";
 
 interface SelectProps {
-    options: { value: string; label: string , type?: string}[];
+    options: { value: string; label: string, type?: string }[];
     onChange: (selectedOption: { value: string; label: string; } | null) => void;
     defaultValue?: { value: string; label: string; };
     placeholder?: string;
@@ -18,14 +19,28 @@ const CustomSelect: React.FC<SelectProps> = ({
     title
 }) => {
 
-    // const filterOption = (option, inputValue) => {
-    //     const filterString = inputValue.replace(/\s/g, "");
-    //     return (
-    //       option.label.toLowerCase().replace(/\s/g, "").indexOf(filterString) >= 0
-    //     );
-    //   };
+    const [inputValue, setInputValue] = useState('');
 
-      
+    const handleKeyDown = (event: any) => {
+        if (event.key === ' ' && !inputValue) {
+            event.preventDefault(); // Prevent space from being entered in the search input
+            setInputValue(' '); // Set the search input value to a space
+        }
+    };
+    const handleInputChange = (value: any) => {
+        setInputValue(value);
+    };
+
+    const customFilterOption = (option: any, rawInput: any) => {
+        const inputValue = rawInput.trim().toLowerCase();
+        const inputCharacters = inputValue.split('');
+
+        return inputCharacters.every((char: any) => {
+            return option.label.toLowerCase().includes(char);
+        });
+    };
+
+
     return (
         <div
             style={{
@@ -39,7 +54,12 @@ const CustomSelect: React.FC<SelectProps> = ({
                 onChange={onChange}
                 defaultValue={defaultValue}
                 placeholder={placeholder}
+                inputValue={inputValue}
+                onInputChange={handleInputChange}
                 autoFocus={autoFocus}
+                onKeyDown={handleKeyDown}
+                filterOption={customFilterOption}
+                isSearchable
             />
         </div>
     );

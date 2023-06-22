@@ -1,7 +1,6 @@
-import React, { FC, useEffect, useRef, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import { SearchComponent } from '../../../assets/ts/components'
-import { KTSVG, toAbsoluteUrl } from '../../../helpers'
-import { useCustomerList } from '../../../../app/modules/customer/core/_hooks'
+import { KTSVG } from '../../../helpers'
 
 interface Customers {
   firstName: string
@@ -15,7 +14,6 @@ interface IProps {
 }
 
 const Search: FC<IProps> = ({ placeholder, customers }) => {
-  const [menuState, setMenuState] = useState<'main' | 'advanced' | 'preferences'>('main')
   const resultsElement = useRef<HTMLDivElement | null>(null)
   const suggestionsElement = useRef<HTMLDivElement | null>(null)
   const emptyElement = useRef<HTMLDivElement | null>(null)
@@ -67,10 +65,10 @@ const Search: FC<IProps> = ({ placeholder, customers }) => {
 
   const [searchValue, setSearchValue] = useState('')
 
-  const handleSearch = (e: any) =>  setSearchValue(e.target.value)
+  const handleSearch = (e: any) => setSearchValue(e.target.value)
 
   const filtredData = customers?.filter((item: any) => {
-    return item.firstName.includes(searchValue)
+    return item.firstName.includes(searchValue) || item.lastName.includes(searchValue)
   })
 
   const selectedCustomers = (item: any) => {
@@ -117,7 +115,6 @@ const Search: FC<IProps> = ({ placeholder, customers }) => {
           className='menu menu-sub menu-sub-dropdown p-7 w-325px w-md-375px'
         >
           <div
-            className={`${menuState === 'main' ? '' : 'd-none'}`}
             data-kt-search-element='wrapper'
           >
             <div className='d-flex flex-stack fw-bold mb-4'>
@@ -132,9 +129,9 @@ const Search: FC<IProps> = ({ placeholder, customers }) => {
                   <div className='d-flex flex-column'>
                     {filtredData?.map((item: any) => {
                       return <div className='d-flex justify-content-between mt-5 k-pr-4'>
-                        <a onClick={() => selectedCustomers(item)} className='cursor-pointer fs-6 text-gray-800 text-hover-primary fw-bold'>
+                        <span onClick={() => selectedCustomers(item)} className='cursor-pointer fs-6 text-gray-800 text-hover-primary fw-bold'>
                           {item.firstName} {item.lastName}
-                        </a>
+                        </span>
                         <span className='fs-7 text-muted fw-bold k-pr-4'>{item.mobile}</span>
                       </div>
 
