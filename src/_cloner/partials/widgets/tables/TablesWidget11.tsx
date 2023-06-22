@@ -26,12 +26,7 @@ const TablesWidget11: React.FC<Props> = ({ className, orders, setOrders }) => {
                     </span>
                     {/* <span className='text-muted mt-1 fw-semibold fs-7'>Over 500 new products</span> */}
                 </h3>
-                {/* <div className='card-toolbar'>
-          <a href='#' className='btn btn-sm btn-light-primary'>
-            <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-2' />
-            New Member
-          </a>
-        </div> */}
+                <h3 className="order_count">{orders.length}</h3>
             </div>
             {/* end::Header */}
             {/* begin::Body */}
@@ -49,6 +44,8 @@ const TablesWidget11: React.FC<Props> = ({ className, orders, setOrders }) => {
                                 <th className="min-w-125px">تعداد</th>
                                 <th className="min-w-125px">قیمت</th>
                                 <th className="min-w-200px">انبار</th>
+                                <th className="min-w-200px">خرید از</th>
+                                <th className="min-w-200px">قیمت خرید</th>
                                 {/* <th className='min-w-150px'>Status</th>
                 <th className='min-w-200px text-end rounded-end'></th> */}
                             </tr>
@@ -89,6 +86,12 @@ const TablesWidget11: React.FC<Props> = ({ className, orders, setOrders }) => {
                                         </td>
                                         <td className="text-dark fw-bold text-hover-primary fs-6">
                                             انبار {item.store}
+                                        </td>
+                                        <td className="text-dark fw-bold text-hover-primary fs-6">
+                                            ثبت نشده
+                                        </td>
+                                        <td className="text-dark fw-bold text-hover-primary fs-6">
+                                            ثبت نشده
                                         </td>
                                         <td className="text-end">
                                             <a

@@ -25,6 +25,7 @@ import CustomTextarea from "../../../_cloner/partials/content/input/CustomTextar
 import CustomDatepicker from "../../../_cloner/partials/content/input/CustomDatepicker";
 import { convertToPersianWord } from "../../../_cloner/helpers/convertPersian";
 import { sliceNumberPrice } from "../../../_cloner/helpers/sliceNumberPrice";
+import CustomModernDatepicker from "../../../_cloner/partials/content/input/CustomModernDatepicker";
 
 interface ISelectValue {
     value?: number;
@@ -90,7 +91,7 @@ const OrderPage = (props: IProductProps) => {
 
     const addedOrders = (e: any) => {
         e.preventDefault();
-        if (!productValue) {
+        if (productValue.label == undefined) {
             alert("وارد نمودن محصول اجباری می باشد");
         } else {
             const newObject = {
@@ -239,6 +240,7 @@ const OrderPage = (props: IProductProps) => {
                     <div className="order_items2 mt-5">
                         <div className="d-flex flex-column mt-5 gap-4">
                             <CustomDatepicker placeholder="تاریخ تسویه" />
+                            {/* <CustomModernDatepicker /> */}
                             <div className="w-100">
                                 <CustomTextarea placeholder="توضیحات" />
                             </div>
@@ -247,12 +249,12 @@ const OrderPage = (props: IProductProps) => {
                         <div className="salefactor d-flex justify-content-between">
                             <span className="font-weight-bold">قیمت کل</span>
                             <span className="font-weight-bold">
-                                {sliceNumberPrice(totalAmount)}
+                                {sliceNumberPrice(totalAmount)} ریال
                             </span>
                         </div>
                         <div className="salefactor d-flex flex-column justify-content-between">
                             <span className="font-weight-bold">
-                                {convertToPersianWord(totalAmount)}{" "}
+                                {convertToPersianWord(totalAmount)} تومان 
                             </span>
                         </div>
                         <div className="d-flex justify-content-end mt-5">

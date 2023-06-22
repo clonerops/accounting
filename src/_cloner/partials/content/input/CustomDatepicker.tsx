@@ -15,6 +15,7 @@ const CustomDatepicker:FC<IProps> = ({title, placeholder}) => {
             {/* <label className="dropdown__label">{title}</label> */}
             <DatePicker
                 round="x4"
+                className='datepickerzaman'
                 inputClass='input'
                 onChange={(d) => console.log(d)}
                 inputAttributes={{
