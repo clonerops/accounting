@@ -51,6 +51,8 @@ const OrderPage = (props: IProductProps) => {
         telephone: "",
         amount: "",
         quantity: "",
+        buyFrom: "",
+        buyAmount: ""
     });
 
     const onChangeHandler = useCallback(
@@ -83,12 +85,20 @@ const OrderPage = (props: IProductProps) => {
         e.preventDefault();
         if (productValue.label === undefined) {
             alert("وارد نمودن محصول اجباری می باشد");
+        } else if (storeValue.label === undefined) {
+            alert("وارد نمودن انبار اجباری می باشد");
+        } else if (inputs.amount === undefined || inputs.amount === "") {
+            alert("وارد نمودن قیمت اجباری می باشد");
+        } else if (inputs.quantity === undefined || inputs.quantity === "") {
+            alert("وارد نمودن مقدار اجباری می باشد");
         } else {
             const newObject = {
                 title: productValue.label,
                 amount: inputs.amount,
                 quantity: inputs.quantity,
                 store: storeValue.label,
+                buyFrom: inputs.buyFrom,
+                buyAmount: inputs.buyAmount
             };
 
             setOrders((prev) => [...prev, newObject]);
@@ -219,8 +229,20 @@ const OrderPage = (props: IProductProps) => {
                     />
                     {storeValue.type === "2" && (
                         <>
-                            <CustomInput placeholder="خرید از" />
-                            <CustomInput placeholder="قیمت خرید" />
+                            <CustomInput
+                                name="buyFrom"
+                                key="buyFrom"
+                                value={inputs.buyFrom}
+                                onChange={onChangeHandler}
+
+                                placeholder="خرید از" />
+                            <CustomInput
+                                name="buyAmount"
+                                key="buyAmount"
+                                value={inputs.buyAmount}
+                                onChange={onChangeHandler}
+
+                                placeholder="قیمت خرید" />
                         </>
                     )}
                     <CustomInput

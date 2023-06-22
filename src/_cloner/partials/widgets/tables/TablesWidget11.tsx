@@ -15,7 +15,7 @@ const TablesWidget11: React.FC<Props> = ({ className, orders, setOrders }) => {
         updatedArray.splice(indexToRemove, 1); // Remove the item at the specified index
         setOrders(updatedArray); // Update the state with the updated array
     };
-
+console.log(orders)
     return (
         <div className={`card ${className}`}>
             {/* begin::Header */}
@@ -88,10 +88,10 @@ const TablesWidget11: React.FC<Props> = ({ className, orders, setOrders }) => {
                                             انبار {item.store}
                                         </td>
                                         <td className="text-dark fw-bold text-hover-primary fs-6">
-                                            ثبت نشده
+                                            {item.buyFrom ? item.buyFrom : "ثبت نشده"}
                                         </td>
                                         <td className="text-dark fw-bold text-hover-primary fs-6">
-                                            ثبت نشده
+                                            {item.buyAmount ? item.buyAmount : "ثبت نشده"}
                                         </td>
                                         <td className="text-end">
                                             <a
