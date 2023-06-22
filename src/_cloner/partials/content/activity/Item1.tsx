@@ -32,7 +32,7 @@ const Item1: FC = () => {
               data-bs-placement='top'
               title='Nina Nilson'
             >
-              <img src={toAbsoluteUrl('/media/avatars/300-14.jpg')} alt='img' />
+              <img src={toAbsoluteUrl('/media/avatars/pr4.jpg')} alt='img' />
             </div>
           </div>
         </div>
@@ -53,7 +53,7 @@ const Item1: FC = () => {
               </div>
 
               <div className='symbol symbol-circle symbol-25px'>
-                <img src={toAbsoluteUrl('/media/avatars/300-14.jpg')} alt='img' />
+                <img src={toAbsoluteUrl('/media/avatars/pr4.jpg')} alt='img' />
               </div>
 
               <div className='symbol symbol-circle symbol-25px'>

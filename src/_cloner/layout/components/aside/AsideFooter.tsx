@@ -18,7 +18,7 @@ const AsideFooter = () => {
           data-kt-menu-placement='top-start'
           title='User profile'
         >
-          <img src={toAbsoluteUrl('/media/avatars/300-1.jpg')} alt='avatar' />
+          <img src={toAbsoluteUrl('/media/avatars/pr.jpg')} alt='avatar' />
         </div>
         {/* end::Menu wrapper */}
         <HeaderUserMenu />

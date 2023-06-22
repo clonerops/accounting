@@ -17,13 +17,13 @@ const InviteUsers: FC = () => {
       access: '1',
     },
     {
-      avatar: '/media/avatars/300-1.jpg',
+      avatar: '/media/avatars/pr.jpg',
       name: 'Max Smith',
       email: 'max@kt.com',
       access: '3',
     },
     {
-      avatar: '/media/avatars/300-1.jpg',
+      avatar: '/media/avatars/pr.jpg',
       name: 'Sean Bean',
       email: 'sean@dellito.com',
       access: '2',
@@ -71,7 +71,7 @@ const InviteUsers: FC = () => {
       access: '2',
     },
     {
-      avatar: '/media/avatars/300-12.jpg',
+      avatar: '/media/avatars/pr2.jpg',
       name: 'Ana Crown',
       email: 'ana.cf@limtel.com',
       access: '1',
@@ -83,7 +83,7 @@ const InviteUsers: FC = () => {
       access: '3',
     },
     {
-      avatar: '/media/avatars/300-13.jpg',
+      avatar: '/media/avatars/pr3.jpg',
       name: 'John Miller',
       email: 'miller@mapple.com',
       access: '3',
@@ -101,7 +101,7 @@ const InviteUsers: FC = () => {
       access: '1',
     },
     {
-      avatar: '/media/avatars/300-12.jpg',
+      avatar: '/media/avatars/pr2.jpg',
       name: 'Ana Crown',
       email: 'ana.cf@limtel.com',
       access: '3',

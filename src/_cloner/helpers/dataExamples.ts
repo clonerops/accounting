@@ -91,7 +91,7 @@ const defaultUserInfos: Array<UserInfoModel> = [
   },
   {
     name: 'Max Smith',
-    avatar: 'avatars/300-1.jpg',
+    avatar: 'avatars/pr.jpg',
     email: 'max@kt.com',
     position: 'Software Enginer',
     online: false,
@@ -155,7 +155,7 @@ const defaultUserInfos: Array<UserInfoModel> = [
   },
   {
     name: 'Ana Crown',
-    avatar: 'avatars/300-12.jpg',
+    avatar: 'avatars/pr2.jpg',
     email: 'ana.cf@limtel.com',
     position: 'Customer Relationship',
     online: false,
@@ -169,7 +169,7 @@ const defaultUserInfos: Array<UserInfoModel> = [
   },
   {
     name: 'John Miller',
-    avatar: 'avatars/300-13.jpg',
+    avatar: 'avatars/pr3.jpg',
     email: 'miller@mapple.com',
     position: 'Project Manager',
     online: false,

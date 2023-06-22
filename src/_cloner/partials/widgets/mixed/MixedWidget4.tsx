@@ -106,7 +106,7 @@ const MixedWidget4: React.FC<Props> = ({className, color, image, title, date, pr
             </a>
 
             <a href='#' className='symbol symbol-35px' data-bs-toggle='tooltip' title='Alice Micto'>
-              <img src={toAbsoluteUrl('/media/avatars/300-10.jpg')} alt='' />
+              <img src={toAbsoluteUrl('/media/avatars/pr0.jpg')} alt='' />
             </a>
           </div>
         </div>

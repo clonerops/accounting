@@ -19,7 +19,7 @@ const authors: ReadonlyArray<{
   },
 
   {
-    avatar: '/media/avatars/300-11.jpg',
+    avatar: '/media/avatars/pr1.jpg',
     name: 'Brian Cox',
     description: 'HTML5, jQuery, CSS3',
   },
@@ -31,7 +31,7 @@ const authors: ReadonlyArray<{
   },
 
   {
-    avatar: '/media/avatars/300-10.jpg',
+    avatar: '/media/avatars/pr0.jpg',
     name: 'Natali Trump',
     description: 'NET, Oracle, MySQL',
   },
@@ -43,7 +43,7 @@ const authors: ReadonlyArray<{
   },
 
   {
-    avatar: '/media/avatars/300-12.jpg',
+    avatar: '/media/avatars/pr2.jpg',
     name: 'Jessie Clarcson',
     description: 'Angular, React',
   },
