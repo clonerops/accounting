@@ -15,7 +15,6 @@ const TablesWidget5: React.FC<Props> = ({className, orders, setOrders}) => {
     setOrders(updatedArray); // Update the state with the updated array
   };
   
-  console.log(orders)
 
   return (
     <div className={`card ${className}`}>
@@ -23,9 +22,9 @@ const TablesWidget5: React.FC<Props> = ({className, orders, setOrders}) => {
       <div className='card-header border-0 pt-5'>
         <h3 className='card-title align-items-start flex-column'>
           <span className='card-label fw-bold fs-3 mb-1'>لیست سفارشات</span>
-          <span className='text-muted mt-1 fw-semibold fs-7'>
+          {/* <span className='text-muted mt-1 fw-semibold fs-7'>
             {`تعداد ${orders.length} سفارش در سبد سفارش موجود می باشد`}
-          </span>
+          </span> */}
         </h3>
         {/* <div className='card-toolbar'>
           <ul className='nav'>
@@ -96,13 +95,14 @@ const TablesWidget5: React.FC<Props> = ({className, orders, setOrders}) => {
                       </div>
                     </td>
                     <td>
-                      <a href='#' className='text-dark fw-bold text-hover-primary mb-1 fs-6'>
+                      <a href='#' className='text-dark fw-bold text-hover-primary fs-6'>
                         {item.title}
                       </a>
-                      <span className='text-muted fw-semibold d-block'>{`${item.quantity} بسته`}</span>
+                      {/* <span className='text-dark fw-bold text-hover-primary fs-6'>{`${item.quantity} بسته`}</span> */}
                     </td>
-                    <td className='text-end text-muted fw-semibold'>{item.amount} ریال</td>
-                    <td className='text-end text-muted fw-semibold'>انبار {item.store}</td>
+                    <td className='text-dark fw-bold text-hover-primary fs-6'> تعداد {item.quantity}</td>
+                    <td className='text-dark fw-bold text-hover-primary fs-6'>{item.amount} ریال</td>
+                    <td className='text-dark fw-bold text-hover-primary fs-6'>انبار {item.store}</td>
                     {/* <td className='text-end'>
                       <span className='badge badge-light-success'>Approved</span>
                     </td> */}

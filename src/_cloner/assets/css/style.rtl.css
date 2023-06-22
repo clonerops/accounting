@@ -50212,6 +50212,11 @@ body {
 .add_customer_icon svg {
   color: white
 }
+.create_customer div{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
 .input {
   width: 100%;
   outline: 0;
@@ -50227,7 +50232,7 @@ body {
   padding: 1rem ;
 }
 .salefactor span {
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-weight: bold;
   
 }
@@ -50237,3 +50242,18 @@ body {
 .salefactor:nth-child(2) {
   color: #00afaf;
 }
+
+.order_items_confirm {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.order_items1 {
+  margin: 0 .4rem;
+  grid-column: span 3 / span 3;
+  }
+.order_items2 {
+  /* border: 1px solid hsl(0, 0%, 80%);
+  border-radius: .4rem; */
+  border-radius: var(--bs-border-radius);
+  padding: 1rem;
+  box-shadow: -5px 47px 48px 31px rgba(0,0,0,0.1);}

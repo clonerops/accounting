@@ -1,31 +1,61 @@
-import { FC } from 'react'
+import { FC } from "react";
 
 interface IProps {
-    title?: string
-    name?: string
-    key?: string
-    value?: string
-    onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined
+    title?: string;
+    name?: string;
+    key?: string;
+    value?: string;
+    placeholder?: string;
+    isCreateCustomer?: boolean
+    onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
 }
 
-const CustomInput: FC<IProps> = ({title, value, name, key, onChange}) => {
+const CustomInput: FC<IProps> = ({
+    title,
+    value,
+    name,
+    key,
+    placeholder,
+    isCreateCustomer,
+    onChange,
+}) => {
     return (
-        <div
-            style={{
-                minWidth: "20vw",
-                gap: 8,
-            }}
-        >
-            <label className="dropdown__label">{title}</label>
-            <input 
-                className='input'
-                name={name}
-                key={key}
-                value={value}
-                onChange={onChange}
-
-            />
-        </div>
+        <>
+            {isCreateCustomer ? (
+                <div
+                    style={{
+                        maxWidth: "20vw",
+                        gap: 8,
+                    }}
+                >
+                    <label className="dropdown__label">{title}</label>
+                    <input
+                        className="input"
+                        name={name}
+                        key={key}
+                        value={value}
+                        onChange={onChange}
+                    />
+                </div>
+            ) : (
+                <div
+                    style={{
+                        maxWidth: "12vw",
+                        gap: 8,
+                    }}
+                >
+                    {/* <label className="dropdown__label">{title}</label> */}
+                    <input
+                        className="input"
+                        name={name}
+                        key={key}
+                        value={value}
+                        placeholder={placeholder}
+                        onChange={onChange}
+                    />
+                </div>
+            )}
+        </>
     );
 };
 

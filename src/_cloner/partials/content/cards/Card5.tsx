@@ -12,15 +12,16 @@ type Props = {
 const Card5: FC<Props> = ({ image, title, children }) => {
     return (
         <div className="card h-100">
-            <div className="card-header flex-nowrap border-0 pt-9">
-                <div className="card-title m-0">
+            {/* <div className="card-header flex-nowrap border-0 pt-9"> */}
+            {/* <div className="card-header flex-nowrap border-0"> */}
+                {/* <div className="card-title m-0">
                     <a
                         href="#"
                         className="fs-4 fw-bold text-hover-primary text-gray-600 m-0"
                     >
                         {title}
                     </a>
-                </div>
+                </div> */}
 
                 {/* <div className="card-toolbar m-0">
                     <button
@@ -38,9 +39,10 @@ const Card5: FC<Props> = ({ image, title, children }) => {
 
                     <Dropdown1 />
                 </div> */}
-            </div>
+            {/* </div> */}
 
-            <div className="card-body d-flex flex-column px-9 pt-6 pb-8">
+            {/* <div className="card-body d-flex flex-column px-9 pt-6 pb-8"> */}
+            <div className="card-body d-flex flex-column px-9 pt-4">
                 {children}
             </div>
         </div>

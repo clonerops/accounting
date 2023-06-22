@@ -17,14 +17,23 @@ const CustomSelect: React.FC<SelectProps> = ({
     placeholder,
     title
 }) => {
+
+    // const filterOption = (option, inputValue) => {
+    //     const filterString = inputValue.replace(/\s/g, "");
+    //     return (
+    //       option.label.toLowerCase().replace(/\s/g, "").indexOf(filterString) >= 0
+    //     );
+    //   };
+
+      
     return (
         <div
             style={{
-                minWidth: "20vw",
+                minWidth: "12vw",
                 gap: 8,
             }}
         >
-            <label className="dropdown__label">{title}</label>
+            {/* <label className="dropdown__label">{title}</label> */}
             <Select
                 options={options}
                 onChange={onChange}
