@@ -31787,8 +31787,8 @@ textarea.form-control-lg {
   --kt-menu-link-bg-color-active: #F4F6FA;
   --kt-feedback-popup-box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
   --kt-feedback-popup-background-color: #ffffff;
-  --kt-scrollbar-color: #eff2f5;
-  --kt-scrollbar-hover-color: #e9edf1;
+  --kt-scrollbar-color: #04c8c8;
+  --kt-scrollbar-hover-color: #04c8c8;
   --kt-scrollbar-width: 0.4rem;
   --kt-scrollbar-height: 0.4rem;
   --kt-scrollbar-space: 0.5rem;
@@ -32112,7 +32112,7 @@ textarea.form-control-lg {
   --kt-menu-link-bg-color-active: #2B2B40;
   --kt-feedback-popup-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
   --kt-feedback-popup-background-color: #1e1e2d;
-  --kt-scrollbar-color: #2B2B40;
+  --kt-scrollbar-color: #04c8c8;
   --kt-scrollbar-hover-color: #27273a;
   --kt-overlay-bg: rgba(255, 255, 255, 0.05);
   --kt-blockui-overlay-bg: rgba(255, 255, 255, 0.05);
@@ -46803,7 +46803,7 @@ ul,
 pre,
 div {
     scrollbar-width: thin;
-    scrollbar-color: var(--kt-scrollbar-color) transparent;
+    scrollbar-color: var(--kt-scrollbar-color);
   }
   main::-webkit-scrollbar,
 span::-webkit-scrollbar,
@@ -46836,7 +46836,7 @@ ol:hover,
 ul:hover,
 pre:hover,
 div:hover {
-    scrollbar-color: var(--kt-scrollbar-hover-color) transparent;
+    scrollbar-color: var(--kt-scrollbar-hover-color);
   }
   main:hover::-webkit-scrollbar-thumb,
 span:hover::-webkit-scrollbar-thumb,
@@ -46891,8 +46891,8 @@ div:hover::-webkit-scrollbar-corner {
 @media (min-width: 992px) {
   .hover-scroll {
     overflow: hidden;
-    border-left: var(--kt-scrollbar-width) solid transparent;
-    border-bottom: var(--kt-scrollbar-height) transparent;
+    border-left: var(--kt-scrollbar-width) solid #04c8c8;
+    border-bottom: var(--kt-scrollbar-height);
     margin-left: calc(-1 * var(--kt-scrollbar-width));
     margin-bottom: calc(-1 * var(--kt-scrollbar-height));
   }
@@ -46922,7 +46922,7 @@ div:hover::-webkit-scrollbar-corner {
 @media (min-width: 992px) {
   .hover-scroll-y {
     overflow-y: hidden;
-    border-left: var(--kt-scrollbar-width) solid transparent;
+    border-left: var(--kt-scrollbar-width) solid #04c8c8;
     margin-left: calc(-1 * var(--kt-scrollbar-width));
   }
   .hover-scroll-y:hover {
@@ -46949,7 +46949,7 @@ div:hover::-webkit-scrollbar-corner {
 @media (min-width: 992px) {
   .hover-scroll-x {
     overflow-x: hidden;
-    border-bottom: var(--kt-scrollbar-height) solid transparent;
+    border-bottom: var(--kt-scrollbar-height) solid #04c8c8;
   }
   .hover-scroll-x:hover {
     overflow-x: scroll;
@@ -46981,7 +46981,7 @@ div:hover::-webkit-scrollbar-corner {
   }
   .hover-scroll-overlay-y::-webkit-scrollbar-thumb {
     background-clip: content-box;
-    border-left: var(--kt-scrollbar-space) solid transparent;
+    border-left: var(--kt-scrollbar-space) solid #04c8c8;
   }
   .hover-scroll-overlay-y:hover {
     overflow-y: overlay;
@@ -49990,7 +49990,7 @@ body {
   }
   .aside-secondary-enabled.aside-fixed .wrapper {
     transition: padding-right 0.3s ease;
-    padding-right: 425px;
+    padding-right: 300px;
   }
   .aside-secondary-enabled.aside-fixed[data-kt-aside-minimize=on] .wrapper {
     transition: padding-right 0.3s ease;
@@ -50120,7 +50120,7 @@ body {
     z-index: 1;
   }
   .aside-secondary-enabled .aside {
-    width: 425px;
+    width: 285px;
   }
   .aside-secondary-disabled .aside {
     width: 100px;

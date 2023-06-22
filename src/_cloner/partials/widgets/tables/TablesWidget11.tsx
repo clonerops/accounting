@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { KTSVG, toAbsoluteUrl } from "../../../helpers";
+import { sliceNumberPrice } from "../../../helpers/sliceNumberPrice";
 
 type Props = {
     className: string;
@@ -84,7 +85,7 @@ const TablesWidget11: React.FC<Props> = ({ className, orders, setOrders }) => {
                                             {item.quantity}
                                         </td>
                                         <td className="text-dark fw-bold text-hover-primary fs-6">
-                                            {item.amount} تومان
+                                            {sliceNumberPrice(item.amount)} ریال
                                         </td>
                                         <td className="text-dark fw-bold text-hover-primary fs-6">
                                             انبار {item.store}
